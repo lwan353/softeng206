@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" 
+    android:orientation="vertical" >
+       	
+   	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+   	    <RelativeLayout 
+   	        android:layout_width="fill_parent" 
+   	        android:layout_height="wrap_content"
+   	        android:layout_weight="2" >
+   	        
+   	        <ImageView 
+   	            android:id="@+id/activity_add_contact_image" 
+   	            android:layout_width="100dp" 
+   	            android:layout_height="80dp" 
+   	            android:layout_alignParentTop="true" 
+   	            android:layout_centerHorizontal="true" 
+   	            android:layout_centerVertical="true"/>
+   	        
+   	        <ImageButton 
+   	            android:id="@+id/activity_add_contact_button_1" 
+   	            android:layout_width="fill_parent" 
+   	            android:layout_height="80dp" 
+   	            android:gravity="center" 
+   	            android:layout_alignParentTop="true" 
+   	            android:layout_centerHorizontal="true" 
+   	            android:layout_centerVertical="true" 
+   	            android:background="#000000" 
+				android:src="@android:drawable/ic_input_add" />
+   	        
+   	        <ImageButton 
+   	            android:id="@+id/activity_add_contact_button_4" 
+   	            android:layout_width="fill_parent" 
+   	            android:layout_height="wrap_content" 
+   	            android:layout_below="@id/activity_add_contact_image" 
+   	            android:gravity="center" 
+   	            android:background="#000000" 
+   	            android:visibility="invisible" 
+   	            android:src="@android:drawable/ic_input_delete" />
+   	        
+   	   	</RelativeLayout>
+
+   	        
+   	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:orientation="vertical" >
+        
+		    <EditText 
+		        android:id="@+id/activity_add_contact_editText1"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:singleLine="true"
+		        android:hint="@string/launch_first_name" />
+		    
+		    <EditText 
+		        android:id="@+id/activity_add_contact_editText2"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:singleLine="true"
+		        android:hint="@string/launch_last_name" />
+		 
+		</LinearLayout>
+		
+	</LinearLayout>
+	
+   	<ListView 
+        android:id="@+id/activity_delete_contact_listview1"
+        android:layout_width="fill_parent"
+        android:layout_height="5dp" />
+    
+    <EditText 
+        android:id="@+id/activity_add_contact_editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:hint="@string/launch_date_of_birth" />
+        
+  	<EditText 
+        android:id="@+id/activity_add_contact_editText4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:phoneNumber="true"
+        android:hint="@string/launch_mobile_phone" />
+        
+    <EditText 
+        android:id="@+id/activity_add_contact_editText5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:phoneNumber="true"
+        android:hint="@string/launch_home_phone" />
+            
+   	<EditText 
+        android:id="@+id/activity_add_contact_editText6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:phoneNumber="true"
+        android:hint="@string/launch_work_phone" />
+                
+  	<EditText 
+        android:id="@+id/activity_add_contact_editText7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/launch_email_address" />
+  	
+ 	<EditText 
+        android:id="@+id/activity_add_contact_editText8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/launch_home_address" />
+ 	
+ 	<ListView 
+        android:id="@+id/activity_add_contact_listview2"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" />
+ 	
+ 	<LinearLayout
+ 	    android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+ 	    <Button 
+ 	        android:id="@+id/activity_add_contact_button_2"
+			android:layout_width="0px"
+			android:layout_height="wrap_content"
+        	android:layout_weight="1"
+        	android:background="#FFFFFF" 
+	   	    android:textColor="#00FFFF"
+        	android:text="@string/launch_back" />
+ 	    
+ 	   	<Button 
+ 	        android:id="@+id/activity_add_contact_button_3"
+			android:layout_width="0px"
+			android:layout_height="wrap_content"
+        	android:layout_weight="1"
+        	android:background="#FFFFFF" 
+	   	    android:textColor="#00FFFF"
+        	android:text="@string/launch_save" />
+ 	   	
+	</LinearLayout>
+    
+</LinearLayout>
