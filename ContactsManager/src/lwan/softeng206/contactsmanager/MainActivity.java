@@ -24,7 +24,6 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	private ListView listView;
-	private Button buttonAdd;
 	private Button buttonDelete;
 	private databaseHelper helper;
 	private CustomCursorAdapter adapter;
@@ -39,7 +38,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		listView = (ListView)findViewById(R.id.main_listview);
-		buttonAdd = (Button)findViewById(R.id.main_button_1);
 		buttonDelete = (Button)findViewById(R.id.main_button_2);
 		
 		setupListView();
@@ -47,19 +45,6 @@ public class MainActivity extends Activity {
 		databaseHelper helper = new databaseHelper(this);
 		CustomCursorAdapter adapter = new CustomCursorAdapter(this, helper.getAllData());
 		listView.setAdapter(adapter);
-		
-		buttonAdd.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, AddContact.class);
-				startActivity(intent);
-				
-			}
-		});
 		
 		buttonDelete.setOnClickListener(new View.OnClickListener() {
 			
@@ -75,37 +60,17 @@ public class MainActivity extends Activity {
 		});
 	}
 	
-	
-//	private List<Contact> displayList = new ArrayList<Contact>();
-//	
+
 	private void setupListView(){
-//		
+		
 		databaseHelper helper = new databaseHelper(this);
 		CustomCursorAdapter adapter = new CustomCursorAdapter(this, helper.getAllData());
 		listView.setAdapter(adapter);
-		
-//		listView.setOnClickListener(new OnItemClickListener(){
-//			public void onItemClick(AdapterView<?>, View clickedView, int)
-//		}
-//		displayList.add(new Contact("Cindy", "Cai"));
-//		displayList.add(new Contact("Emily", "Wang"));
-//		displayList.add(new Contact("Eric", "Hu"));
-//		displayList.add(new Contact("Gary", "Lu"));
-//		displayList.add(new Contact("Ivy", "Tan"));
-//		displayList.add(new Contact("Ivy", "Tan"));
-//		displayList.add(new Contact("Ivy", "Tan"));
-//		displayList.add(new Contact("Ivy", "Tan"));
-//		displayList.add(new Contact("Joy", "Wang"));
-//	
-//		ListAdapter listAdapter = new CustomListAdapter(MainActivity.this, displayList);
-//		listView.setAdapter(listAdapter);
-		
 
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parentView, View clickedView, int clickedViewPosition, long id){
 				
-//				Contact selectedContact = displayList.get(clickedViewPosition);
 				Intent intent = new Intent();
 				intent.setClass(MainActivity.this, ViewContact.class);
 				intent.putExtra("contactId", id);
@@ -113,39 +78,9 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-//		
+		
 	}
-//	
-//	
-//	private class CustomListAdapter extends ArrayAdapter<Contact>{
-//		
-//		private Context context;
-//		private List<Contact> contact;
-//		
-//		CustomListAdapter(Context context, List<Contact> contact){
-//			super(context, android.R.layout.simple_list_item_1, contact);
-//			
-//			this.context = context;
-//			this.contact = contact;
-//		}
-//		
-//		@Override
-//		public View getView(int position, View convertView, ViewGroup parent){
-//			
-//			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//			
-//			View listItemView = inflater.inflate(R.layout.custom_list_item_layout, null);
-//			
-//			TextView FirstName = (TextView) listItemView.findViewById(R.id.list_item_text_first_name);
-//			TextView LastName = (TextView) listItemView.findViewById(R.id.list_item_text_last_name);
-//			
-//			FirstName.setText(contact.get(position).getFirstName());
-//			LastName.setText(contact.get(position).getLastName());
-//			
-//			return listItemView;
-//		}
-//	}
-//		
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -189,6 +124,13 @@ public class MainActivity extends Activity {
 			helper = new databaseHelper(MainActivity.this);
 			adapter = new CustomCursorAdapter(MainActivity.this, helper.sort("MobilePh"));
 			listView.setAdapter(adapter);
+		}
+		
+		if(item.getItemId() == R.id.action_add){
+			
+			Intent intent = new Intent();
+			intent.setClass(MainActivity.this, AddContact.class);
+			startActivity(intent);
 		}
 		
 		return super.onOptionsItemSelected(item);

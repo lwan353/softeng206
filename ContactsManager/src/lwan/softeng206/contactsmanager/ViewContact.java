@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -114,35 +115,30 @@ public class ViewContact extends Activity {
 			}
 		});
 		
-//		setupListView();
-		
 	}
 		
-//	private void setupListView(){
-//		
-////		String[] listStr1 = { FirstName, "Tan"};	
-//			
-//
-//	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.view_contact, menu);
 		
-//		buttonEdit.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				
-//				Intent intent = new Intent();
-//				intent.setClass(ViewContact.this, EditContact.class);
-//				startActivity(intent);
-//				
-//			}
-//		});
-		
 		return true;
 	}
+	
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		if(item.getItemId() == R.id.action_edit){
+			
+			Intent intent = new Intent();
+			intent.setClass(ViewContact.this, EditContact.class);
+			startActivity(intent);
+		}
+		
+		return super.onOptionsItemSelected(item);
+		
+	}
+	
 }
 

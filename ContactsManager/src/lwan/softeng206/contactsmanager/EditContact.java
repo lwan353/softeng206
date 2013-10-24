@@ -105,6 +105,7 @@ public class EditContact extends Activity {
 		newEmailAddress = editEmailAddress.getText().toString();
 		newAddress = editAddress.getText().toString();
 		
+		//edit photo
 		buttonEditPhoto.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -117,7 +118,7 @@ public class EditContact extends Activity {
 			}
 		});
 			
-			
+		//delete contact	
 		buttonDelete.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -147,6 +148,7 @@ public class EditContact extends Activity {
 			}
 		});
 		
+		//update
 		buttonSave.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -170,6 +172,7 @@ public class EditContact extends Activity {
 			}
 		});
 		
+		//back to view contact
 		buttonBack.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -200,7 +203,6 @@ public class EditContact extends Activity {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
             
-//            ImageView imageView = (ImageView) findViewById(R.id.activity_add_contact_image);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 			
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
