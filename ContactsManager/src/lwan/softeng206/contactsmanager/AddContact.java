@@ -112,6 +112,8 @@ public class AddContact extends Activity {
 				EditText addEmailAddress = (EditText)findViewById(R.id.activity_add_contact_editText7);
 				EditText addAddress = (EditText)findViewById(R.id.activity_add_contact_editText8);
 				
+				
+				// get the text from input
 				String FirstName = addFirstName.getText().toString();
 				String LastName = addLastName.getText().toString();
 				String DateOfBirth = addDateOfBirth.getText().toString();
@@ -121,6 +123,7 @@ public class AddContact extends Activity {
 				String EmailAddress = addEmailAddress.getText().toString();
 				String Address = addAddress.getText().toString();
 				
+				// insert new contact
 				helper.insertData(FirstName, LastName, DateOfBirth, MobilePh, HomePh, WorkPh, EmailAddress, Address, imageb);
 				Intent intent = new Intent();
 				intent.setClass(AddContact.this, MainActivity.class);
@@ -147,13 +150,15 @@ public class AddContact extends Activity {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
             
-//            ImageView imageView = (ImageView) findViewById(R.id.activity_add_contact_image);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 			
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
 			BitmapFactory.decodeFile(picturePath).compress(Bitmap.CompressFormat.PNG, 100, stream);;
 			imageb =  stream.toByteArray();
 			
+			
+			// after a photo is selected hide the button add, and let the delete button be visible, 
+			//so can delete the photo just selected and change it
             buttonAddPhoto.setVisibility(View.INVISIBLE);
             buttonDeletePhoto.setVisibility(View.VISIBLE);
             

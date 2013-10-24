@@ -33,26 +33,6 @@ public class CustomCursorAdapter extends CursorAdapter {
  		TextView LastName = (TextView)view.findViewById(R.id.list_item_text_last_name);
  		TextView MobilePh = (TextView)view.findViewById(R.id.list_item_text_moblie_ph);
  		
-//		if(FirstName != null && ! FirstName.equals("")) {
-//			FirstName.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1))));
-//			if(LastName != null && ! LastName.equals("")){
-//				LastName.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(2))));
-//				if(MobilePh != null && ! MobilePh.equals("")){
-//					MobilePh.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(4))));
-//				}
-//			}else if(MobilePh != null && ! MobilePh.equals("")){
-//				MobilePh.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(4))));
-//			}
-//		}else if(LastName != null && ! LastName.equals("")){
-//			
-//			LastName.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(2))));
-//			if(MobilePh != null && ! MobilePh.equals("")){
-//				MobilePh.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(4))));
-//			}
-//		}else if (MobilePh != null && ! MobilePh.equals("")){
-//			MobilePh.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(4))));
-//		}
- 		
  		
  		FirstName.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1))));
  		LastName.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(2))));

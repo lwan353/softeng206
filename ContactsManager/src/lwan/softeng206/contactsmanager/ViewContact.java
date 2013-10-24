@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -23,12 +24,14 @@ public class ViewContact extends Activity {
 	private Button buttonEdit;
 	private byte[] imageb;
     
+	// titles for the two list view
 	private String[] listTitle1 = { "First Name", "Last Name"};
 	private String[] listTitle2 = { "Date of Birth", "Moblie Phone", "Home Phone", "Work Phone","Email Address", "Home Adress"};
 	
 	private ArrayList<Map<String,Object>> Data1= new ArrayList<Map<String,Object>>();;
     private ArrayList<Map<String,Object>> Data2= new ArrayList<Map<String,Object>>();;
     
+    private ImageView imageView;
     long id;
     
     databaseHelper helper = new databaseHelper(ViewContact.this);
@@ -39,6 +42,7 @@ public class ViewContact extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_contact);
 		
+		// get the id of selected data
 		Intent intent1 = getIntent();
 		id = intent1.getLongExtra("contactId", -1);	
 		Cursor cursor = helper.getSelectedData(String.valueOf(id));
@@ -47,7 +51,10 @@ public class ViewContact extends Activity {
 		listView2 = (ListView)findViewById(R.id.activity_view_contact_listview2);
 		buttonBack = (Button)findViewById(R.id.activity_view_contact_button_3);
 		buttonEdit = (Button)findViewById(R.id.activity_view_contact_button_4);
+		imageView = (ImageView)findViewById(R.id.color_image);
 		
+		
+		// get the information of the selected data
 		if(cursor.moveToFirst()) {  
 			
 			String FirstName = cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1)));
@@ -60,9 +67,11 @@ public class ViewContact extends Activity {
 			String Address = cursor.getString(cursor.getColumnIndex(cursor.getColumnName(8)));
 			imageb = cursor.getBlob(cursor.getColumnIndex(cursor.getColumnName(9)));
 			
+			
 			String[] listStr1 = { FirstName, LastName };
 			String[] listStr2 = { DateOfBirth,  MobilePh,  HomePh,  WorkPh, EmailAddress, Address };
 			
+			// FirstName, LastName for the contact
 			int lengh1 = listTitle1.length;
 			for(int i =0; i < lengh1; i++) {
 				Map<String,Object> item = new HashMap<String,Object>();
@@ -71,6 +80,8 @@ public class ViewContact extends Activity {
 				Data1.add(item); 
 			}
 			
+			
+			// DateOfBirth,  MobilePh,  HomePh,  WorkPh, EmailAddress, Address for the contact
 			int lengh2 = listTitle2.length;
 			for(int i =0; i < lengh2; i++) {
 				Map<String,Object> item = new HashMap<String,Object>();
@@ -91,6 +102,8 @@ public class ViewContact extends Activity {
 			
 		}
 		
+		
+		//back to the main screen
 		buttonBack.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -102,6 +115,7 @@ public class ViewContact extends Activity {
 			}
 		});
 		
+		// go to edit the text
 		buttonEdit.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -129,6 +143,7 @@ public class ViewContact extends Activity {
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		
+		// go to edit contact screen
 		if(item.getItemId() == R.id.action_edit){
 			
 			Intent intent = new Intent();

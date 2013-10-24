@@ -69,7 +69,7 @@ public class EditContact extends Activity {
 		editEmailAddress = (EditText)findViewById(R.id.activity_edit_contact_editText7);
 		editAddress = (EditText)findViewById(R.id.activity_edit_contact_editText8);
 		
-		
+		// get the id for selected data
 		Intent intent1 = getIntent();
 		id = intent1.getLongExtra("contactId", -1);	
 		Cursor cursor = helper.getSelectedData(String.valueOf(id));
@@ -85,6 +85,7 @@ public class EditContact extends Activity {
 			String EmailAddress = cursor.getString(cursor.getColumnIndex(cursor.getColumnName(7)));
 			String Address = cursor.getString(cursor.getColumnIndex(cursor.getColumnName(8)));
 
+			// display the information of selected contact in the edit field
 			editFirstName.setText(FirstName);
 			editLastName.setText(LastName);
 			editDateOfBirth.setText(DateOfBirth);
@@ -95,15 +96,6 @@ public class EditContact extends Activity {
 			editAddress.setText(Address);
 		
 		}
-		
-		newFirstName = editFirstName.getText().toString();
-		newLastName = editLastName.getText().toString();
-		newDateOfBirth = editDateOfBirth.getText().toString();
-		newMobilePh = editMobilePh.getText().toString();
-		newHomePh = editHomePh.getText().toString();
-		newWorkPh = editWorkPh.getText().toString();
-		newEmailAddress = editEmailAddress.getText().toString();
-		newAddress = editAddress.getText().toString();
 		
 		//edit photo
 		buttonEditPhoto.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +146,7 @@ public class EditContact extends Activity {
 			@Override
 			public void onClick(View v) {
 				
+				// after click save get the new information of the contact
 				newFirstName = editFirstName.getText().toString();
 				newLastName = editLastName.getText().toString();
 				newDateOfBirth = editDateOfBirth.getText().toString();

@@ -90,8 +90,8 @@ public class databaseHelper extends SQLiteOpenHelper {
 	
 	public void updateData(long id, String FirstName, String LastName, String DateOfBirth, String MobilePh, String HomePh,
 			String WorkPh, String EmailAddress, String Address, byte[] Imageb) {
-//			SQLiteDatabase db = this.getWritableDatabase();
-	      	ContentValues c= new ContentValues();
+	    
+		ContentValues c= new ContentValues();
 			
 			c.put(databaseHelper.CONTACT_FIRST_NAME, FirstName);
 			c.put(databaseHelper.CONTACT_LAST_NAME, LastName);
@@ -108,10 +108,8 @@ public class databaseHelper extends SQLiteOpenHelper {
 	
 	
 	public void deleteData(long id) {  
-//		SQLiteDatabase database = this.getWritableDatabase();  
-//	       
-//		database.execSQL("DELETE FROM " + this.TABLE_CONTACT + " WHERE _id = "+ String.valueOf(id));  
-        this.getWritableDatabase().execSQL("DELETE FROM " + this.TABLE_CONTACT + " WHERE _id = "+ String.valueOf(id));  
+
+		this.getWritableDatabase().execSQL("DELETE FROM " + this.TABLE_CONTACT + " WHERE _id = "+ String.valueOf(id));  
     }
 	
 
